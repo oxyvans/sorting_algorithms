@@ -19,6 +19,7 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+void sorted_Insert(listint_s **sorted, listint_s *new_n);
 void swap(int* x, int* y);
 void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
