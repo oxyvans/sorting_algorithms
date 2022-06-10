@@ -8,15 +8,15 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_s *sorted = NULL;
-	listint_s *current = *list;
+	listint_t *sorted = NULL;
+	listint_t *current = *list;
 
 	while(current != NULL)
 	{
-		listint_s *next = current->next;
+		listint_t *next = current->next;
 		current->prev = current->next = NULL;
+		print_list(*list);
 		sorted_Insert(&sorted, current);
-		print_list(sorted);
 		current = next;
 	}
 	*list = sorted;
@@ -29,9 +29,9 @@ void insertion_sort_list(listint_t **list)
  * @current: aux
  */
 
-void sorted_Insert(listint_s **sorted, listint_s *new_n)
+void sorted_Insert(listint_t **sorted, listint_t *new_n)
 {
-	listint_s *current;
+	listint_t *current;
 
 	if (*sorted == NULL)
 		*sorted = new_n;
@@ -50,6 +50,13 @@ void sorted_Insert(listint_s **sorted, listint_s *new_n)
 			{
 				current = current->next;
 			}
+			new_n->next = current->next;
+
+			if (current->next != NULL)
+				new_n->next->prev = new_n;
+
+			current->next = new_n;
+			new_n->prev = current;
 
 		}
 	}
