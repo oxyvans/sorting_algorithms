@@ -29,9 +29,9 @@ void bubble_sort(int *array, size_t size)
  * @y: int 2
  */
 
-void swap(int* x, int* y)
+void swap(int *x, int *y)
 {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
